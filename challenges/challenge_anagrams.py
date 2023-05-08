@@ -1,12 +1,20 @@
 def is_anagram(first_string, second_string):
 
+    if len(first_string) != len(second_string):
+        return (first_string, second_string, False)
+
+    elif not len(first_string) or not len(second_string):
+        return (first_string, second_string, False)
+
     ssa = partition(first_string.lower(), 0, len(first_string) - 1)
     ssb = partition(second_string.lower(), 0, len(second_string) - 1)
 
     if (ssa[1] == ssb[1]):
+        print(ssa[1], ssb[1])
         return ssa[1], ssb[1], True
 
-    return ssa[1], ssb[1], False
+    elif (ssa[1] != ssb[1]):
+        return first_string, second_string, False
 
 
 def q_sort(word, start, end):
@@ -38,6 +46,6 @@ if __name__ == "__main__":
     y = 'Cab'
     print(is_anagram(x, y))
 
-    a = 'XaB'
-    b = 'bbx'
+    a = 'PEDRA'
+    b = 'perda'
     print(is_anagram(a, b))
