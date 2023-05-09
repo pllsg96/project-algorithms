@@ -9,8 +9,7 @@ def is_anagram(first_string, second_string):
     if (ssa == ssb):
         return ssa, ssb, True
 
-    elif (ssa != ssb):
-        return ssa, ssb, False
+    return ssa, ssb, False
 
 
 def q_sort(word):
