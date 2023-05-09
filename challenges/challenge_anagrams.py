@@ -1,44 +1,30 @@
 def is_anagram(first_string, second_string):
 
-    if len(first_string) != len(second_string):
+    if not len(first_string) and not len(second_string):
         return (first_string, second_string, False)
 
-    elif not len(first_string) or not len(second_string):
-        return (first_string, second_string, False)
+    ssa = ''.join(q_sort(first_string.lower()))
+    ssb = ''.join(q_sort(second_string.lower()))
+    print(ssa, ssb)
+    if (ssa == ssb):
+        return ssa, ssb, True
 
-    ssa = partition(first_string.lower(), 0, len(first_string) - 1)
-    ssb = partition(second_string.lower(), 0, len(second_string) - 1)
-
-    if (ssa[1] == ssb[1]):
-        print(ssa[1], ssb[1])
-        return ssa[1], ssb[1], True
-
-    elif (ssa[1] != ssb[1]):
-        return first_string, second_string, False
+    elif (ssa != ssb):
+        return ssa, ssb, False
 
 
-def q_sort(word, start, end):
-    if start < end:
-        p = partition(word, start, end)
-        q_sort(word, start, p - 1)
-        q_sort(word, p + 1, end)
-
-
-def partition(word, start, end):
-    word_list = list(word)
-    pivot = word_list[end]
-    delimiter = start - 1
-
-    for i in range(start, end):
-        if (word_list[i] <= pivot):
-            delimiter = delimiter + 1
-            word_list[i], word_list[delimiter] = \
-                word_list[delimiter], word_list[i]
-
-    word_list[delimiter + 1], word_list[end] = \
-        word_list[end], word_list[delimiter + 1]
-
-    return delimiter + 1, ''.join(word_list)
+def q_sort(word):
+    if len(word) <= 1:
+        return word
+    pivot = word[0]
+    left = []
+    right = []
+    for letter in word[1:]:
+        if letter < pivot:
+            left.append(letter)
+        else:
+            right.append(letter)
+    return q_sort(left) + [pivot] + q_sort(right)
 
 
 if __name__ == "__main__":
@@ -46,6 +32,6 @@ if __name__ == "__main__":
     y = 'Cab'
     print(is_anagram(x, y))
 
-    a = 'PEDRA'
-    b = 'perda'
+    a = 'ALEgria'
+    b = 'alergia'
     print(is_anagram(a, b))
