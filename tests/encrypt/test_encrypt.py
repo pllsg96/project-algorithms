@@ -12,3 +12,4 @@ def test_encrypt_message():
     assert encrypt_message("pizza", 0) == "azzip"
     assert encrypt_message("champignon", 3) == "ahc_nongipm"
     assert encrypt_message("calabresa", 4) == "aserb_alac"
+    
