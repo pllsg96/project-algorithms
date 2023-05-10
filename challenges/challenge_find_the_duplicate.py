@@ -3,6 +3,7 @@ def find_duplicate(nums):
 
     verifier = []
     for numero in nums:
+        # and numero >= 1 abaixo
         if (isinstance(numero, int)):
             if numero in verifier:
                 return numero
