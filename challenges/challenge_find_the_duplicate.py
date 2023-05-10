@@ -3,7 +3,7 @@ def find_duplicate(nums):
 
     verifier = []
     for numero in nums:
-        if (isinstance(numero, int) and numero >= 1):
+        if (isinstance(numero, int)):
             if numero in verifier:
                 return numero
             else:
@@ -45,8 +45,7 @@ def merge(numbers, start, mid, end):
             numbers[general_index] = right[r_i]
             r_i = r_i + 1
 
-
-if __name__ == "__main__":
-    permanence_period = [2, -1, -1]
-    x = find_duplicate(permanence_period)
-    print(x)
+# if __name__ == "__main__":
+#     permanence_period = [2, -1, -1]
+#     x = find_duplicate(permanence_period)
+#     print(x)
