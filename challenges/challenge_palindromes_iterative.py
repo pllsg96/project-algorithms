@@ -17,5 +17,5 @@ def is_palindrome_iterative(word):
 
 
 if __name__ == "__main__":
-    x = is_palindrome_iterative('TENET')
-    print(x)
+    xy = is_palindrome_iterative('TENET')
+    print(xy)
